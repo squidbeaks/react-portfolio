@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { capitalizeFirstLetter } from "../../utils/helpers";
 
-function Nav() {
-  const  categories = [
-    { name: 'commercial', description: 'Photos of grocery stores, food trucks, and other commercial projects' },
-    { name: 'portraits', description: 'Portraits of people in my life' },
-    { name: 'food', description: 'Delicious delicacies' },
-    { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' }
-  ];
+function Nav(props) {
+  const {
+    projects = [],
+    setCurrentProject,
+    currentProject,
+  } = props;
 
-  const handleClick = () => {
-    console.log("click handled")
-  }
+  useEffect(() => {
+    document.title = capitalizeFirstLetter(currentProject.name);
+  }, [currentProject]);
 
   return (
     <header data-testid="header" className="flex-row px-1">
@@ -22,20 +22,23 @@ function Nav() {
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a data-testid="about" href="#about" onClick={() => handleClick()}>
+            <a data-testid="about" href="#about">
               About me
             </a>
           </li>
           <li className={"mx-2"}>
-            <span onClick={() => handleClick()}>
-              Contact
-            </span>
+            <span>Contact</span>
           </li>
-          {
-            categories.map((category) => (
-              <li className="mx-1" key={category.name} >
-                <span onClick={() => { handleClick(); }}>
-                 {category.name}
+          {projects.map((project) => (
+              <li className={`mx-1 ${
+                currentProject.name === project.name && 'navActive'
+                }`} key={project.name}>
+                <span
+                  onClick={() => {
+                    setCurrentProject(project);
+                  }}
+                >
+                  {capitalizeFirstLetter(project.name)}
                 </span>
               </li>
             ))
