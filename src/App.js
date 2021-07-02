@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import About from './components/About';
 import Nav from './components/Nav';
-import Projects from './components/Projects';
+import Portfolio from './components/Portfolio'
 
 function App() {
   const [projects] = useState([
-    { name: 'wine-and-dine', description: '' },
+    { name: 'Wine and Dine', description: '' },
     { name: 'masterTicket', description: '' },
+    { name: 'masterTicket2.0', description: ''},
     { name: 'Shorebreakers', description: '' },
   ]);
 
@@ -20,7 +21,7 @@ function App() {
           currentProject={currentProject}
         ></Nav>
         <main>
-          <Projects></Projects>
+          <Portfolio></Portfolio>
           <About></About>
         </main>
     </div>
