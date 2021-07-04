@@ -3,42 +3,34 @@ import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav(props) {
   const {
-    projects = [],
-    setCurrentProject,
-    currentProject,
+    titles = [],
+    setCurrentTitle,
+    currentTitle,
   } = props;
 
   useEffect(() => {
-    document.title = capitalizeFirstLetter(currentProject.name);
-  }, [currentProject]);
+    document.title = capitalizeFirstLetter(currentTitle.name);
+  }, [currentTitle]);
 
   return (
     <header data-testid="header" className="flex-row px-1">
       <h2>
         <a data-testid="link" href="/">
-          <span role="img" aria-label="camera"> 📸</span> Oh Snap!
+          LSR
         </a>
       </h2>
       <nav>
-        <ul className="flex-row">
-          <li className="mx-2">
-            <a data-testid="about" href="#about">
-              About me
-            </a>
-          </li>
-          <li className={"mx-2"}>
-            <span>Contact</span>
-          </li>
-          {projects.map((project) => (
+        <ul>
+          {titles.map((title) => (
               <li className={`mx-1 ${
-                currentProject.name === project.name && 'navActive'
-                }`} key={project.name}>
+                currentTitle.name === title.name && 'navActive'
+                }`} key={title.name}>
                 <span
                   onClick={() => {
-                    setCurrentProject(project);
+                    setCurrentTitle(title);
                   }}
                 >
-                  {capitalizeFirstLetter(project.name)}
+                  {capitalizeFirstLetter(title.name)}
                 </span>
               </li>
             ))

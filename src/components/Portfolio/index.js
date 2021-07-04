@@ -1,6 +1,6 @@
 import React from 'react';
 import { capitalizeFirstLetter } from '../../utils/helpers';
-import photo from '../../assets/projects/wine-and-dine.png';
+import Project from '../Project';
 
 function Portfolio(props) {
   const currentProject = {
@@ -11,13 +11,7 @@ function Portfolio(props) {
     <section>
       <h1>{capitalizeFirstLetter(currentProject.name)}</h1>
       <p>{currentProject.description}</p>
-      <div>
-        <img
-          src={photo}
-          alt="Wine and Dine Preview"
-          className="img-thumbnail mx-1"
-        />
-      </div>
+      <Project />
     </section>
   );
 }
