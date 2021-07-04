@@ -12,6 +12,21 @@ function App() {
   ]);
 
   const [currentTitle, setCurrentTitle] = useState(titles[0]);
+  const currentPage = ({ name }) => {
+    console.log(name)
+    switch (name) {
+      case 'About':
+        return <About />
+      case 'Portfolio':
+        return <Portfolio />;
+//      case 'Contact':
+      //   return <ContactForm />
+      // case 'Resume':
+      //   return <Resume />;
+      default:
+        break;
+    }
+  };
 
   return (
     <div>
@@ -21,8 +36,7 @@ function App() {
         currentTitle={currentTitle}
       ></Nav>
       <main>
-        <Portfolio></Portfolio>
-        <About></About>
+        {currentPage(currentTitle)}
       </main>
     </div>
   );
@@ -35,8 +49,6 @@ export default App;
 // THEN I am presented with a page containing a header, a section for content, and a footer
 // WHEN I click on a navigation title
 // THEN I am presented with the corresponding section below the navigation without the page reloading and that title is highlighted
-// WHEN I am presented with the Portfolio section
-// THEN I see titled images of six of the developer’s applications with links to both the deployed applications and the corresponding GitHub repository
 // WHEN I am presented with the Contact section
 // THEN I see a contact form with fields for a name, an email address, and a message
 // WHEN I move my cursor out of one of the form fields without entering text
