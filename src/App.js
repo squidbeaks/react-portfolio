@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import About from './components/About';
 import Nav from './components/Nav';
 import Portfolio from './components/Portfolio'
+import ContactForm from './components/Contact';
 
 function App() {
   const [titles] = useState([
@@ -19,8 +20,8 @@ function App() {
         return <About />
       case 'Portfolio':
         return <Portfolio />;
-//      case 'Contact':
-      //   return <ContactForm />
+      case 'Contact':
+        return <ContactForm />
       // case 'Resume':
       //   return <Resume />;
       default:
@@ -47,9 +48,6 @@ export default App;
 // GIVEN a single-page application portfolio for a web developer
 // WHEN I load the portfolio
 // THEN I am presented with a page containing a header, a section for content, and a footer
-
-// WHEN I am presented with the Contact section
-// THEN I see a contact form with fields for a name, an email address, and a message
 
 // WHEN I move my cursor out of one of the form fields without entering text
 // THEN I receive a notification that this field is required
