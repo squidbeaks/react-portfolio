@@ -2,7 +2,7 @@
 
   ## Description
   This is a portfolio that can be used to showcase my projects that I've built.
-  ![Portfolio Preview](./src/assets/portfolio.png)
+  ![Portfolio Preview](./src/assets/portfolio.pngg)
 
   ## Table of Contents
 
