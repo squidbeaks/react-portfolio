@@ -12,7 +12,7 @@ const Project = ({ project }) => {
       />
       <div className='flex-row align-self-center'>
         <a href={project.appURL}>{project.name} App</a>
-        <p>|</p>
+        <p> | </p>
         <a href={project.githubURL}>{project.name} Source Code</a>
       </div>
     </div>
